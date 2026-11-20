@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Signature</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Crect%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%2212%22%20fill%3D%22%232340b8%22/%3E%3Cpath%20d%3D%22M11%2031%20C%2014%2021%2C%2016.5%2012.5%2C%2020%2013%20C%2023.5%2013.5%2C%2018%2027.5%2C%2020.5%2030.5%20C%2023%2033.5%2C%2025.5%2020.5%2C%2028.5%2020.5%20C%2031.5%2020.5%2C%2029%2029.5%2C%2032%2029.5%20C%2034.5%2029.5%2C%2036%2025%2C%2037.5%2023%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpath%20d%3D%22M10%2037%20C%2018%2034.5%2C%2029%2034%2C%2038%2036%22%20fill%3D%22none%22%20stroke%3D%22%23a9bcff%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Ccircle%20cx%3D%2238.6%22%20cy%3D%2222%22%20r%3D%222.4%22%20fill%3D%22%23a9bcff%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f3f3f1; --surface: #ffffff; --text: #15161a; --muted: #5d6068; --hair: #d9dbdf; --strong: #a3a7ae;
+  --accent: #2340b8; --accent-soft: #e6eafb; --accent-line: #b3c1f2;
+  --logo-bg: #2340b8; --logo-fg: #ffffff; --logo-hi: #a9bcff;
+  --font-display: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f1012; --surface: #17181b; --text: #ecedf0; --muted: #a0a3ab; --hair: #2c2e33; --strong: #50535b;
+    --accent: #8ea4ff; --accent-soft: #1d2647; --accent-line: #3b4a85; --logo-bg: #3352e0; --logo-fg: #ffffff; --logo-hi: #c3d0ff; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-display); -webkit-font-smoothing: antialiased; }
+.lock { min-height: 100%; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.lockcard { width: min(360px, 100%); background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 28px 24px 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; box-shadow: 0 8px 30px rgba(15, 17, 22, .08); }
+.lockmark { width: 52px; height: 52px; }
+h1 { margin: 2px 0 0; font-size: 19px; font-weight: 700; }
+.lockcard p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.4; }
+#lockCode { width: 100%; height: 58px; text-align: center; font: 600 30px/1 var(--font-mono); letter-spacing: .55em; padding-left: .55em; color: var(--text); background: var(--surface); border: 1px solid var(--strong); border-radius: 8px; }
+#lockCode:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; border-color: var(--accent); }
+#lockCode:disabled { opacity: .6; }
+.switch { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; cursor: pointer; user-select: none; position: relative; background: var(--surface); border: 1px solid var(--strong); border-radius: 999px; padding: 4px 11px 4px 5px; color: var(--text); font-weight: 500; }
+.switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.switch .track { width: 28px; height: 16px; border-radius: 8px; background: var(--strong); position: relative; flex: none; transition: background .15s ease; }
+.switch .track::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: transform .15s ease; }
+.switch input:checked + .track { background: var(--accent); }
+.switch input:checked + .track::after { transform: translateX(12px); }
+.switch input:focus-visible + .track { outline: 2px solid var(--accent); outline-offset: 2px; }
+.switch:has(input:checked) { background: var(--accent-soft); border-color: var(--accent-line); }
+.lockmsg { min-height: 18px; color: #b3261e !important; font-size: 13px !important; }
+.lockmsg.info { color: var(--muted) !important; }
+.foot { font-size: 11.5px !important; }
+.lockcard.shake { animation: shake .32s ease; }
+@keyframes shake { 20% { transform: translateX(-7px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(3px); } }
+@media (prefers-reduced-motion: reduce) { .lockcard.shake { animation: none; } .switch .track, .switch .track::after { transition: none; } }
+</style>
+</head>
+<body>
+<main class="lock">
+  <form class="lockcard" id="lockForm" autocomplete="off" novalidate>
+    <svg class="lockmark" viewBox="0 0 48 48" aria-hidden="true">
+      <rect width="48" height="48" rx="12" fill="var(--logo-bg)"/>
+      <path d="M11 31 C 14 21, 16.5 12.5, 20 13 C 23.5 13.5, 18 27.5, 20.5 30.5 C 23 33.5, 25.5 20.5, 28.5 20.5 C 31.5 20.5, 29 29.5, 32 29.5 C 34.5 29.5, 36 25, 37.5 23" fill="none" stroke="var(--logo-fg)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10 37 C 18 34.5, 29 34, 38 36" fill="none" stroke="var(--logo-hi)" stroke-width="2.8" stroke-linecap="round"/>
+      <circle cx="38.6" cy="22" r="2.3" fill="var(--logo-hi)"/>
+    </svg>
+    <h1>Signature</h1>
+    <p>Bitte gib deinen 4-stelligen Zugangscode ein. Er wird automatisch geprüft.</p>
+    <input id="lockCode" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" aria-label="4-stelliger Zugangscode" aria-describedby="lockMsg">
+    <label class="switch" for="lockRemember">
+      <input type="checkbox" id="lockRemember" checked>
+      <span class="track" aria-hidden="true"></span>
+      <span>Auf diesem Gerät merken</span>
+    </label>
+    <p class="lockmsg" id="lockMsg" role="alert"></p>
+    <p class="foot">Der Code wird auf dem Server geprüft. Erst danach wird das Programm geladen.</p>
+    <noscript><p>Bitte JavaScript aktivieren.</p></noscript>
+  </form>
+</main>
+<script>
+(function () {
+  'use strict';
+  // Prüfung des Codes in Supabase; bei Erfolg kommt der Schlüssel für die verschlüsselte App (app.bin)
+  var FN_URL = 'https://ydjcspvqrgvvadynoleo.supabase.co/functions/v1/signature-unlock';
+  var CODE_KEY = 'signature-web-code';
+  var form = document.getElementById('lockForm');
+  var input = document.getElementById('lockCode');
+  var msg = document.getElementById('lockMsg');
+  var remember = document.getElementById('lockRemember');
+  var busy = false;
+  var appBinP = null;
+
+  function store(code, keep) {
+    try {
+      localStorage.removeItem(CODE_KEY); sessionStorage.removeItem(CODE_KEY);
+      if (code) (keep ? localStorage : sessionStorage).setItem(CODE_KEY, code);
+    } catch (e) { /* ohne Speicher: Code wird jedes Mal abgefragt */ }
+  }
+  function stored() {
+    try {
+      var l = localStorage.getItem(CODE_KEY); if (l) return { code: l, keep: true };
+      var s = sessionStorage.getItem(CODE_KEY); if (s) return { code: s, keep: false };
+    } catch (e) { /* egal */ }
+    return null;
+  }
+  function say(text, info) { msg.textContent = text || ''; msg.classList.toggle('info', !!info); }
+  function shake() { form.classList.remove('shake'); void form.offsetWidth; form.classList.add('shake'); }
+  function fetchApp() {
+    if (!appBinP) appBinP = fetch('app.bin', { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error('app.bin ' + r.status);
+      return r.arrayBuffer();
+    });
+    return appBinP;
+  }
+  function b64ToBytes(b64) {
+    var bin = atob(b64), out = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+  async function openApp(keyB64) {
+    if (!window.crypto || !crypto.subtle || typeof DecompressionStream === 'undefined') throw new Error('browser');
+    var key = await crypto.subtle.importKey('raw', b64ToBytes(keyB64), 'AES-GCM', false, ['decrypt']);
+    var buf = new Uint8Array(await fetchApp());
+    var gz = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: buf.slice(0, 12) }, key, buf.slice(12));
+    var html = await new Response(new Blob([gz]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+    document.open();
+    document.write(html);
+    document.close();
+  }
+  async function unlock(code, keep, silent) {
+    if (busy) return;
+    busy = true;
+    input.disabled = true;
+    say(silent ? 'Wird geladen …' : 'Wird geprüft …', true);
+    fetchApp().catch(function () { appBinP = null; });
+    var res, data = {};
+    try {
+      res = await fetch(FN_URL, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ code: code }) });
+      try { data = await res.json(); } catch (e) { data = {}; }
+    } catch (e) {
+      busy = false; input.disabled = false; input.value = ''; input.focus();
+      say('Keine Verbindung zum Server. Bitte Internet prüfen und erneut versuchen.');
+      return;
+    }
+    if (res.ok && data.ok && data.key) {
+      store(code, keep);
+      try { await openApp(data.key); return; }
+      catch (e) {
+        busy = false; input.disabled = false;
+        say(e && e.message === 'browser' ? 'Dieser Browser ist zu alt. Bitte einen aktuellen Browser verwenden.' : 'Das Programm konnte nicht geladen werden. Bitte Seite neu laden.');
+        return;
+      }
+    }
+    busy = false; input.disabled = false; input.value = '';
+    if (res.status === 429) {
+      say('Zu viele Fehlversuche. Bitte ' + (data.retryAfterMinutes || 15) + ' Minuten warten.');
+    } else if (res.status === 401 || res.status === 400) {
+      if (silent) { store(null); say('Der gespeicherte Code gilt nicht mehr. Bitte neuen Code eingeben.'); }
+      else { say('Dieser Code ist nicht gültig. Bitte nochmal versuchen.'); shake(); }
+    } else {
+      say('Der Server antwortet gerade nicht (Fehler ' + res.status + '). Bitte später erneut versuchen.');
+    }
+    input.focus();
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!/^[0-9]{4}$/.test(input.value)) { say('Bitte genau 4 Ziffern eingeben.'); return; }
+    unlock(input.value, remember.checked, false);
+  });
+  input.addEventListener('input', function () {
+    var clean = input.value.replace(/[^0-9]/g, '').slice(0, 4);
+    if (clean !== input.value) input.value = clean;
+    if (clean.length === 4) unlock(clean, remember.checked, false);
+  });
+  var s = stored();
+  if (s) { remember.checked = s.keep; unlock(s.code, s.keep, true); }
+  else input.focus();
+})();
+</script>
+</body>
+</html>
