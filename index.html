@@ -105,6 +105,7 @@ h1 { margin: 2px 0 0; font-size: 19px; font-weight: 700; }
   function fetchApp() {
     if (!appBinP) appBinP = fetch('app.bin', { cache: 'no-cache' }).then(function (r) {
       if (!r.ok) throw new Error('app.bin ' + r.status);
+      try { var v = r.headers.get('etag') || r.headers.get('last-modified'); if (v) sessionStorage.setItem('signature-app-version', v); } catch (e) { /* egal */ }
       return r.arrayBuffer();
     });
     return appBinP;
